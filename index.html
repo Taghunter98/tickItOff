@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="backgroundGrey alignCenter">
+    <!-- Hero -->
+    <div class="container col gap50 marginWidth marginHeight contentWidth">
+      <!-- tickItOff logo -->
+      <img
+        style="height: 40px; width: 118px"
+        src="assets/logo/tickItOff.svg"
+        alt="tickItOff logo"
+      />
+
+      <h1 class="black contentWidth">
+        Feeling unproductive? How about you try this it might help...
+      </h1>
+
+      <!-- Hero card -->
+      <div class="container card col gap30 backgroundWhite">
+        <!-- Text -->
+        <div class="container col gap10">
+          <h3 class="black">What is your name?</h3>
+          <p class="p1 black">
+            Welcome to tickItOff, an easy project based task manager to help you
+            focus!
+          </p>
+        </div>
+
+        <!-- Input for name -->
+
+        <div class="container row inputContainer">
+          <input type="text" id="name-input" placeholder="What’s your name?" />
+          <button id="start-button" class="primary" disabled>Let's Go</button>
+        </div>
+
+        <!-- Bottom text -->
+        <p class="p2 black">
+          <span class="bold darkGrey">tickItOff</span> does not store your data,
+          it is saved locally to your computer
+        </p>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,438 @@
+/* Stylesheet for tickItOff
+
+This is for the global styles of tickItOff.
+
+Contents
+--------------------
+- Global style rules
+- Typography
+- Colours
+- Buttons
+- Containers
+- Building Blocks
+- Forms and Lists
+
+
+
+
+Created by @Josh Bassett on 08/09/24
+*/
+
+/* Global
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/* EB Garamond */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "EB Garamond", serif;
+}
+
+
+
+
+
+
+
+
+
+
+/* Typography
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/* Headers */
+
+h1 {
+    font-size: 3.563rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 112.281%;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2.813rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115.556%;
+}
+
+h3 {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 133.333%;
+}
+
+h5 {
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 127.273%;
+}
+
+h6 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+
+
+
+/* Body */
+
+.p1 {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.p2 {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 142.857%;
+}
+
+.p3 {
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 133.333%;
+}
+
+
+
+
+/* Text decoration */
+
+.bold {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/* Colours
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/* Main colours */
+
+:root {
+    --black: #0A0A0A;
+    --white: #ffff;
+    --darkGrey: #505050;
+    --grey: #EBEBEB;
+    --green: #019F24;
+    --red: #CE1212;
+}
+
+
+
+
+/* Color classes */
+
+.black {
+    color: var(--black);
+}
+
+.white {
+    color: var(--white);
+}
+
+.darkGrey {
+    color: var(--darkGrey);
+}
+
+.grey {
+    color: var(--grey);
+}
+
+.green {
+    color: var(--green);
+}
+
+.red {
+    color: var(--red);
+}
+
+
+
+
+/* Background */
+
+.backgroundGrey {
+    background-color: var(--grey);
+}
+
+.backgroundWhite {
+    background-color: var(--white);
+}
+
+
+
+
+
+
+
+
+/* Buttons
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/* Button class */
+
+button {
+    
+    /* Container */
+    display: inline-flex;
+    padding: 12px 25px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    gap: 10px;
+
+    /* Text style */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 142.857%;
+    text-transform: uppercase;
+
+    /* Animation */
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+
+
+
+/* Button class hover */
+
+button:hover {
+    box-shadow: 0px 2px 24px 0px rgba(10, 10, 10, 0.14);
+    opacity: 0.9;
+}
+
+
+
+
+
+/* Button Types */
+
+.primary {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.secondary {
+    color: var(--black);
+    background-color: var(--white);
+    border: var(--grey);
+}
+
+
+
+
+
+
+
+
+
+/* Containers
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/* Main container class */
+
+.container {
+    display: flex;
+}
+
+
+
+
+/* Container decoration
+--------------------------------------------------------------------------------------
+*/
+
+/* Direction */
+
+.col {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.alignCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+/* Gap */
+
+.gap50 {
+    gap: 50px;
+}
+
+.gap20 {
+    gap: 20px;
+}
+
+.gap30 {
+    gap: 30px;;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+
+
+
+
+/* Width and Margin */
+
+.width100 {
+    width: 100%;
+}
+
+.contentWidth {
+    max-width: 800px;
+    width: auto;
+}
+
+.marginWidth {
+    padding: 0px 50px;
+}
+
+.marginHeight {
+    padding: 100px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Building Blocks
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/* Cards */
+
+.card {
+    padding: 30px;
+    gap: 30px;
+    border-radius: 20px;
+
+    /* Card shadow */
+    box-shadow: 0px 4px 60px 0px rgba(10, 10, 10, 0.10);
+}
+
+/* Sidebar */
+
+#sidebar {
+    width: 400px;
+    height: 100vh;
+    padding: 50px 20px;
+    border-right: 2px solid var(--grey);
+}
+
+/* Project view */
+#main-content {
+    flex-grow: 1;
+    padding: 50px 100px;
+}
+
+
+
+
+
+
+
+
+/* Forms and Lists
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/* Input container*/
+.inputContainer {
+    padding: 10px;
+    border: solid 2px var(--grey);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Animation */
+    transition: 0.2s ease-in;
+}
+
+/* Input hover */
+
+.inputContainer:hover {
+    box-shadow: 0px 2px 24px 0px rgba(10, 10, 10, 0.14);
+}
+
+
+/* Input */
+
+input {
+    border: none;
+    height: 24px;
+    width: 80%;
+
+    /* Font */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+/* Li */
+
+li {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+    padding: 10px;
+}

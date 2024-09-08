@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container row">
+      <!-- Sidebar with Project List -->
+      <div id="sidebar" class="container col gap50">
+        <!-- tickItOff logo -->
+        <img
+          src="assets/logo/tickItOff.svg"
+          style="width: 120px"
+          alt="tickItOff logo"
+        />
+        <div class="container col gap20">
+          <h1 id="greeting"></h1>
+
+          <!-- Input for project -->
+          <div class="container row inputContainer">
+            <input
+              id="new-project-input"
+              name="text"
+              placeholder="Add a new Project..."
+            />
+            <button id="add-project-btn" class="primary">Add</button>
+          </div>
+        </div>
+
+        <ul id="project-list"></ul>
+      </div>
+
+      <!-- Main Content Area -->
+      <div id="main-content" class="container col gap50">
+        <div class="container col gap20">
+          <h2 id="project-title">Select a project</h2>
+
+          <!-- Input for new task -->
+          <div class="container row inputContainer">
+            <input
+              id="new-task-input"
+              name="text"
+              placeholder="Add a new task..."
+            />
+            <button id="add-task-btn" class="primary">Add Task</button>
+          </div>
+
+          <!-- This will display the list of tasks for the selected project -->
+          <ul id="task-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
