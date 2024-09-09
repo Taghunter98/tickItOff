@@ -250,7 +250,12 @@ button:hover {
 .secondary {
     color: var(--black);
     background-color: var(--white);
-    border: var(--grey);
+    border:solid 2px var(--grey);
+}
+
+.secondary:hover {
+    color: var(--white);
+    background-color: var(--black);
 }
 
 
@@ -400,11 +405,19 @@ button:hover {
     transition: 0.2s ease-in;
 }
 
+
+
+
+
 /* Input hover */
 
 .inputContainer:hover {
     box-shadow: 0px 2px 24px 0px rgba(10, 10, 10, 0.14);
 }
+
+
+
+
 
 
 /* Input */
@@ -426,13 +439,138 @@ input:focus {
 }
 
 
-/* Li */
 
-li {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    text-decoration: none;
+
+
+/* Tasks
+--------------------------------------------------------------------------------------
+*/
+
+/* Task List Container */
+#task-list {
+    list-style-type: none;
+    padding: 0; 
+}
+
+li > input {
+    height: 24px;
+    width: 24px;
+}
+
+
+
+
+
+/* Task Item */
+#task-list li {
+    display: flex;
+    align-items: center; 
+    padding: 10px 10px;
+    gap: 10px;
+}
+
+#task-list li:hover {
+    background-color: var(--grey);
+}
+
+
+
+
+
+/* Hide the default checkbox */
+#task-list li input[type="checkbox"] {
+    appearance: none; 
+    -webkit-appearance: none;
+    width: 24x;
+    height: 24px;
+    background-color: var(--white);
+    border: 2px solid var(--grey);
+    border-radius: 4px; 
+    cursor: pointer;
+    position: relative;
+}
+
+
+
+
+
+/* Checkbox checked state */
+#task-list li input[type="checkbox"]:checked {
+    background-color: var(--black); 
+    border-color: var(--black);
+}
+
+
+
+
+
+/* Create a checkmark */
+#task-list li input[type="checkbox"]:checked::after {
+    content: ''; 
+    position: absolute; 
+    left: 7px;
+    top: 3px;
+    width: 5px; 
+    height: 10px;
+    border: solid white; 
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg); 
+}
+
+
+
+
+
+/* Hover */
+#task-list li input[type="checkbox"]:hover {
+    border-color: var(--black); 
+}
+
+
+
+
+
+/* Projects
+--------------------------------------------------------------------------------------
+*/
+
+#project-list > li {
+    display: flex;
+    align-items: center;
     padding: 10px;
+    border-radius: 5px;
+
+    /* Font */
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 127.273x;
+
+    /* Animation */
+    cursor: pointer;
+}
+
+
+
+
+#project-list > li:hover {
+    background-color: var(--grey);
+}
+
+
+
+
+
+.project-active {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+
+
+
+#project-list > .project-active:hover {
+    background-color: var(--black);
+    color: var(--white);
+    opacity: 0.8;
 }

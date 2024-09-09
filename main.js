@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskList = document.getElementById('task-list');
     const newTaskInput = document.getElementById('new-task-input');
     const addTaskBtn = document.getElementById('add-task-btn');
+    const clearCompletedBtn = document.getElementById('clear-completed-btn');
 
     // Retrieve from local storage
     let projects = JSON.parse(localStorage.getItem('projects')) || {};
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.keys(projects).forEach(projectName => {
             const li = document.createElement('li');
             li.textContent = projectName;
+            li.classList.toggle('project-active', projectName === currentProject); // Apply active class to li
 
             // Add click event to select the project
             li.addEventListener('click', () => {
@@ -76,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentProject = projectName;
         localStorage.setItem('currentProject', currentProject);
         renderTasks();
+        renderProjects();
     }
 
     // Function to render tasks
@@ -84,9 +87,30 @@ document.addEventListener('DOMContentLoaded', () => {
         projectTitle.textContent = currentProject; // Display the selected project title
         taskList.innerHTML = '';
 
-        projects[currentProject].forEach(task => {
+        // Ensure it is an array
+        if (!Array.isArray(projects[currentProject])) {
+            projects[currentProject] = [];
+        }
+        
+        projects[currentProject].forEach((taskObj, index) => {
             const li = document.createElement('li');
-            li.textContent = task;
+
+            // Create checkbox for task
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = taskObj.completed; // Set the checkbox state
+
+            // Add event listener to mark task as complete
+            checkbox.addEventListener('change', () => {
+                taskObj.completed = checkbox.checked; // Update the task's completed status
+                saveProjects();
+                li.style.textDecoration = taskObj.completed ? 'line-through' : 'none';
+            });
+            
+            li.textContent = taskObj.name;
+            li.prepend(checkbox);
+            li.style.textDecoration = taskObj.completed ? 'line-through' : 'none';
+
             taskList.appendChild(li);
         });
     }
@@ -95,12 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
     addTaskBtn.addEventListener('click', () => {
         const taskName = newTaskInput.value.trim(); // Get task input
         if (taskName && currentProject) {
-            projects[currentProject].push(taskName); // Add the task to the current project
+            projects[currentProject].push({name: taskName, completed: false}); // Store the task with completion status
             saveProjects(); // Save updated projects to local storage
             renderTasks(); // Re-render the tasks to include the new one
             newTaskInput.value = ''; // Clear the task input field
         }
-    })
+    });
+
+    // Clear all completed tasks
+    clearCompletedBtn.addEventListener('click', () => {
+        if (currentProject) {
+            projects[currentProject] = projects[currentProject].filter(task => !task.completed); // Remove completed tasks
+            saveProjects();
+            renderTasks();
+        }
+    });
     
 
     // Add event listener to the "Add" button
@@ -121,11 +154,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 });
-
-
-
-
-
-
-
-
